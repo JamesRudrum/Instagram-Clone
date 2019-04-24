@@ -10,4 +10,12 @@ feature 'Creating posts' do
     expect(page).to have_content('#hongkong')
     expect(page).to have_css("img[src*='neon_city_1.tif']")
   end
+
+  it 'needs an image to create a post' do
+    visit '/'
+    click_link 'New Post'
+    fill_in 'Caption', with: "I have not added an image"
+    click_button 'Create Post'
+    expect(page).to have_content('You need an image to be able  to post!!!')
+  end
 end
