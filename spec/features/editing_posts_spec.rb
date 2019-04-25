@@ -12,7 +12,11 @@ feature 'An individual post can be edited' do
     expect(page).to have_content("I forgot to add a caption")
   end
   it "won't update  post without an image" do
-    attach_file('Image', 'spec/files/neon1.zip')
+    post_one = create(:post, caption: "")
+    visit '/'
+    find(:xpath, "//a[contains(@href,'posts/1')]").click
+    click_link 'Edit Post'
+    attach_file('Image', "spec/files/neon1.zip")
     click_button 'Update Post'
     expect(page).to have_content("There is something wrong with your update")
   end
