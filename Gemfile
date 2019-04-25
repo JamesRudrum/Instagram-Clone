@@ -6,6 +6,9 @@ ruby '2.5.0'
 gem 'paperclip'
 
 gem 'simple_form'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>=2.1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'

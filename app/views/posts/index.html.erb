@@ -1,8 +1,24 @@
-<h1> Instagram Clone </h1>
+<body>
+  <h1> Instagram Clone </h1>
 
-<%= link_to "New Post", new_post_path %>
-<br><br><br>
+  <%= link_to "New Post", new_post_path %>
+  <br><br><br>
 
-<% @posts.each do |post| %>
-<%= link_to (image_tag post.image.url(:medium)), post_path(post) %><%= post.caption %>
-<% end %>
+  <div class="posts-wrapper row">
+  <% @posts.each do |post| %>
+    <div class="post">
+      <div class="post-head">
+        <div class="name">
+          James Rudrum
+        </div>
+      </div>
+      <div class="image center-block">
+        <%= link_to (image_tag post.image.url(:medium)), post_path(post) %>
+      </div>
+      <p class="caption">
+        <%= post.caption %>
+      </p>
+    </div>
+  </div>
+  <% end %>
+</body>
