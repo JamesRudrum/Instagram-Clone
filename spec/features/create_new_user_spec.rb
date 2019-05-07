@@ -21,4 +21,14 @@ feature 'Creating a new user' do
     click_button 'Sign up'
     expect(page).to have_content("can't be blank")
   end
+
+  scenario 'requires a user name to be more than 4 characters' do
+    fill_in 'User name', with: 'h'
+    fill_in 'Email', with: 'sxyrailsdev@myspace.com'
+    fill_in 'Password', with: 'supersecret', match: :first
+    fill_in 'Password confirmation', with: 'supersecret'
+
+    click_button 'Sign up'
+    expect(page).to have_content('minimum is 4 characters')
+  end
 end
