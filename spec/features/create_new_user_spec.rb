@@ -11,7 +11,7 @@ feature 'Creating a new user' do
     fill_in 'Password', with: 'james123', match: :first
     fill_in 'Password confirmation', with: 'james123'
 
-    click_button 'Sign Up'
-    expect(page).to have_content('You have signed up successfully!!!')
+    click_button 'Sign up'
+    expect(page).to have_content('You have signed up successfully')
   end
 end
