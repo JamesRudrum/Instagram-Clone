@@ -3,7 +3,7 @@ require 'rails_helper.rb'
 feature 'Creating posts' do
   background do
     user = create :user
-    
+
     sign_in_with (user)
   end
 
@@ -15,6 +15,7 @@ feature 'Creating posts' do
     click_button 'Create Post'
     expect(page).to have_content('#hongkong')
     expect(page).to have_css("img[src*='neon_city_1.tif']")
+    expect(page).to have_content('JPR1992')
   end
 
   it 'needs an image to create a post' do
