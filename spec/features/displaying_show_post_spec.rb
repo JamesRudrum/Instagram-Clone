@@ -5,10 +5,7 @@ feature 'Can view individual posts' do
       user = create :user
       post = create :post
 
-      visit '/'
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: user.password
-      click_button 'Log in'
+      sign_in_with (user)
   end
 
   scenario 'Can click and view a single post' do

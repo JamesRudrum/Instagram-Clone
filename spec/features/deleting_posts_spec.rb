@@ -6,15 +6,12 @@ feature 'deleting posts' do
     user = create :user
 
 
-    visit('/')
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    sign_in_with (user)
 
     find(:xpath, "//a[contains(@href,'posts/1')]").click
     click_link 'Edit Post'
   end
-  
+
   scenario 'can delete a single post' do
     click_link 'Delete Post'
     expect(page).to have_content('Post Deleted!')
