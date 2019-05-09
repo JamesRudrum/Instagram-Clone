@@ -32,7 +32,7 @@ feature 'Creating a new user' do
   end
 
   scenario 'requires a user name to be less than 12 characters' do
-  fill_in 'User name', with: 'h' * 13
+  fill_in 'User name', with: 'hhhhhhhhhhhhh'
   fill_in 'Email', with: 'sxyrailsdev@myspace.com'
   fill_in 'Password', with: 'supersecret', match: :first
   fill_in 'Password confirmation', with: 'supersecret'
